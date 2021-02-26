@@ -2,4 +2,4 @@
 This repository contains the data and code used for a comprehensive study of the evolution of deep learning models in open source repositories
 
  **How Do Deep Learning Models Evolve? 
- AComprehensive Study of the Evolution of Deep Learning Models in OpenSource Repositories**
+ A Comprehensive Study of the Evolution of Deep Learning Models in OpenSource Repositories**

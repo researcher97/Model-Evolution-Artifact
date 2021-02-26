@@ -1,0 +1,309 @@
+# The query filters the projects which use the given ML libraries.
+
+p: Project = input;
+nodePrint: output collection of string;
+noCommit: output sum[string] of int;
+testFileCount: output sum of int;
+errorFileCount: output sum of int;
+dnnModuleCount: output sum of int;
+modifiedDnnModuleCount: output sum of int;
+totalModuleCount: output sum of int;
+impactList: output sum[string][string][string] of int;
+currentModuleLibs: array of string;
+
+revision: Revision;
+repo: CodeRepository;
+
+
+skippedFileCount: output sum of int;
+
+current_method_name:string="";
+current_file_name:string="";
+revision_id:string="";
+
+
+dnnPackage := { "torch", "keras", "tensorflow"};
+otherPackage : array of string;
+
+isKindPrefix:=function(node: Expression, prf: string): bool
+{
+	skind:=string(node.kind);
+    return match("^"+prf+".*",skind);
+};
+areExpressionsDefinedInExp:=function(node: Expression): bool
+{
+	if(def(node.expressions))
+    	if(len(node.expressions)>0)
+    			return true;
+    return false;
+};
+isProperAssignment:=function(node: Expression): bool
+{
+	if(!def(node)) return false;
+	if(!isKindPrefix(node, "ASSIGN")) return false;
+	if(areExpressionsDefinedInExp(node)==false)	return false;
+	if(len(node.expressions)!=2) return false;
+	return true;
+};
+isKindChange:=function(node: ChangeKind): bool
+{
+	if(node!=ChangeKind.MOVED && node!=ChangeKind.UNCHANGED && node!=ChangeKind.UNKNOWN && node!=ChangeKind.UNMAPPED)
+		return true;
+	return false; 
+};
+isChangeKindModification:=function(node: Expression): bool
+{
+	if(def(node.change)==false) return false;
+	if(isKindChange(node.change)==false)
+		return false;
+	if(node.change==ChangeKind.ADDED)
+		return false;
+	return true; 
+};
+isChangeKindAdded:=function(node: Expression): bool
+{
+	if(def(node.change)==false) return false;
+	if(node.change==ChangeKind.ADDED)
+		return true;
+	return false; 
+};
+expressionToStr:= function(node: Expression): string
+{
+	str:="";
+	if(node.kind==ExpressionKind.VARACCESS)
+	{
+		if(def(node.variable))
+		{
+			str=node.variable;
+		}
+	}
+	else if(node.kind==ExpressionKind.LITERAL)
+	{
+		if(def(node.literal))
+		{
+			str=node.literal;
+		}
+	}
+	else if(node.kind==ExpressionKind.METHODCALL)
+	{
+		if(def(node.method))
+		{
+			str=node.method;
+		}
+	}
+
+	return str;
+};
+expressionsToStr:=function(node: Expression): string
+{
+	str:="";
+	tmp:="";
+	foreach(i:int;def(node.expressions[i]))
+	{
+		tmp="";
+		if(node.expressions[i].kind==ExpressionKind.ARRAYACCESS)
+		{
+			if(def(node.expressions[i].expressions))
+			{
+				if(len(node.expressions[i].expressions)>0)
+					tmp=expressionToStr(node.expressions[i].expressions[0]);
+			}
+		}
+		else
+			tmp=expressionToStr(node.expressions[i]);
+		if(tmp!="")
+			str=str+"."+tmp;
+	}
+	tmp=expressionToStr(node);
+	if(tmp!="")
+		str=str+"."+tmp;
+		
+	if(str!="")
+		str=substring(str,1);
+	return str;	
+};
+
+recordImpact:=function(api : string, param: string,val: string)
+{
+	impactList[api][param][val]<<1;
+};
+
+isTfApi:=function(api:string):bool
+{
+	if(match("tensorflow", api))
+		return true;
+		
+	if(match("^tensorflow\\..*", api))
+		return true;
+	return false;
+};
+isKerasApi:=function(api:string):bool
+{
+	if(match("keras", api))
+		return true;
+	if(match("^keras\\..*", api))
+		return true;
+	return false;
+};
+isTorchApi:=function(api:string):bool
+{
+	if(match("torch", api))
+		return true;
+		
+	if(match("^torch\\..*", api))
+		return true;
+	return false;
+};
+getLibName:=function(api:string):string
+{
+	if(isTfApi(api))
+		return "tensorflow";
+	if(isKerasApi(api))
+		return "keras";
+	if(isTorchApi(api))
+		return "torch";
+	return "";
+};
+getLibIndex:=function(api:string):int
+{
+	foreach(j:int;def(dnnPackage[j]))
+		if(match(dnnPackage[j], getLibName(api)))
+		{
+			return j;
+		}
+	return -1;
+};
+isExpressionImpacted:=function(node: Expression): bool
+{
+	if(def(node.change))
+	{
+		if(isKindChange(node.change))
+			return true;
+	}
+		
+	foreach(i:int;def(node.expressions[i]))
+	{
+		if(isExpressionImpacted(node.expressions[i]))
+			return true;
+	}
+	if(node.kind==ExpressionKind.METHODCALL)
+	{
+		foreach(i:int;def(node.method_args[i]))
+		{
+			if(isExpressionImpacted(node.method_args[i]))
+				return true;
+			break;
+		}
+	}
+	return false;
+};
+
+handleMethodCall:=function(node: Expression)
+{
+	libIndex:= getLibIndex(node.method);
+	
+	if(libIndex==-1 or def(node.method_args)==false or len(node.method_args)==0 
+		or def(node.method_args[0].expressions)==false 
+		or len(node.method_args[0].expressions)==0
+	)
+	{
+		return;	
+	}
+		
+	foreach(j:int;def(node.method_args[0].expressions[j]))
+	{
+		if(isProperAssignment(node.method_args[0].expressions[j]))
+		{
+			recordImpact(node.method,expressionsToStr(node.method_args[0].
+					expressions[j].expressions[0]
+				),expressionsToStr(node.method_args[0].
+					expressions[j].expressions[1]));			
+		}
+		
+		else 
+		{
+			recordImpact(node.method,string(j),expressionsToStr(node.method_args[0].
+				expressions[j]));
+		}
+	}
+	
+};
+impactDetectionVisitor:= visitor
+{
+
+    before node: Expression->
+    {
+    	if(node.kind==ExpressionKind.METHODCALL)
+    	{
+    		handleMethodCall(node);
+		}
+    }
+};
+
+
+visit(p, visitor { 
+	
+	before node: Project->
+	{
+	    if(node.stars<15) 
+	    {
+	        stop;
+	    }
+	}
+	before node: Revision ->
+    {
+#    	if(node.id!="b606a25f74e3d847e972924ccaea8dece9151cdc")
+#    	 	stop;
+#    	 revision_id=string(node.id);
+    }
+    
+    
+    before node: ChangedFile ->
+    {
+        if (!match(".*\\.py", node.name)) # exclude non-python files
+    		stop;
+    	
+    	if(match(".*\\\\site-packages\\\\.*", node.name))
+    	{
+    		stop;
+    	}
+    		
+    	if(def(node.name) and match(".*test.*", lowercase(node.name)))
+    	{
+    		stop;
+    	}
+    	if(def(node.kind))
+    	{
+    		if(node.kind==FileKind.SOURCE_PY_ERROR)
+    		{
+    			stop;
+    		}
+    	}
+    	
+		 
+		 astCount:=getastcount(node);
+		 if(astCount>10000)
+		 {
+		 	stop;
+		 }
+		
+#    	if(node.change==ChangeKind.ADDED)
+#    	 stop;
+    	
+    	cur_ast:=getast(node);
+    	
+    	if(!def(cur_ast)) 	stop;
+    	
+		diffNode := getmodification(cur_ast, dnnPackage, otherPackage);
+		
+		currentModuleLibs=getpythonimportmodules(cur_ast,dnnPackage);
+		
+		if(len(currentModuleLibs)==0) stop;
+		
+		if(def(diffNode))
+			visit(diffNode, impactDetectionVisitor);
+    	
+    	stop;
+    }
+	
+});

@@ -1,0 +1,76 @@
+Library Name,API Name,Loss Function Type
+keras,keras.backend.binary_crossentropy,Binary Cross-entropy
+tensorflow,tensorflow.contrib.seq2seq.sequence_loss,CTC
+tensorflow,tensorflow.losses.mean_squared_error,MSE
+tensorflow,tensorflow.losses.softmax_cross_entropy,Categorical Cross Entropy
+tensorflow,tensorflow.losses.sparse_softmax_cross_entropy,Sparse Categorical Cross Entropy
+tensorflow,tensorflow.nn.ctc_loss,CTC
+tensorflow,tensorflow.nn.l2_loss,MSE
+tensorflow,tensorflow.nn.nce_loss,NCE
+tensorflow,tensorflow.nn.seq2seq.sequence_loss,CTC
+tensorflow,tensorflow.nn.seq2seq.sequence_loss_by_example,CTC
+tensorflow,tensorflow.nn.sigmoid_cross_entropy_with_logits,Binary Cross-entropy
+tensorflow,tensorflow.nn.softmax_cross_entropy_with_logits_v2,Categorical Cross Entropy
+tensorflow,tensorflow.nn.sparse_softmax_cross_entropy_with_logits,Sparse Categorical Cross Entropy
+torch,torch.nn.BCELoss,Binary Cross-entropy
+torch,torch.nn.BCEWithLogitsLoss,Binary Cross-entropy
+torch,torch.nn.CrossEntropyLoss,Categorical Cross Entropy
+torch,torch.nn.functional.binary_cross_entropy,Binary Cross-entropy
+torch,torch.nn.functional.binary_cross_entropy_with_logits,Binary Cross-entropy
+torch,torch.nn.functional.cross_entropy,Categorical Cross Entropy
+torch,torch.nn.functional.kl_div,KL DIvergence
+torch,torch.nn.functional.l1_loss,MAE
+torch,torch.nn.functional.mse_loss,MSE
+torch,torch.nn.functional.nll_loss,NLL
+torch,torch.nn.functional.smooth_l1_loss,Huber
+torch,torch.nn.L1Loss,MAE
+torch,torch.nn.MSELoss,MSE
+torch,torch.nn.NLLLoss,NLL
+,keras.backend.binary_crossentropy,Binary Cross-entropy
+,keras.backend.categorical_crossentropy,Categorical Cross Entropy
+,keras.backend.sparse_categorical_crossentropy,Sparse Categorical Cross Entropy
+,keras.losses.binary_crossentropy,Binary Cross-entropy
+,keras.losses.categorical_crossentropy,Categorical Cross Entropy
+,keras.metrics.binary_crossentropy,Binary Cross-entropy
+,tensorflow.compat.v1.losses.mean_squared_error,MSE
+,tensorflow.compat.v1.losses.softmax_cross_entropy,Categorical Cross Entropy
+,tensorflow.compat.v1.losses.sparse_softmax_cross_entropy,Sparse Categorical Cross Entropy
+,tensorflow.compat.v1.nn.l2_loss,MSE
+,tensorflow.contrib.slim.losses.softmax_cross_entropy,Categorical Cross Entropy
+,tensorflow.keras.backend.binary_crossentropy,Binary Cross-entropy
+,tensorflow.keras.losses.BinaryCrossentropy,Binary Cross-entropy
+,tensorflow.keras.losses.CategoricalCrossentropy,Categorical Cross Entropy
+,tensorflow.keras.losses.MeanSquaredError,MSE
+,tensorflow.keras.losses.SparseCategoricalCrossentropy,Sparse Categorical Cross Entropy
+,tensorflow.keras.losses.binary_crossentropy,Binary Cross-entropy
+,tensorflow.keras.losses.categorical_crossentropy,Categorical Cross Entropy
+,tensorflow.keras.losses.sparse_categorical_crossentropy,Sparse Categorical Cross Entropy
+,tensorflow.keras.metrics.MeanSquaredError,MSE
+,tensorflow.losses.absolute_difference,MAE
+,tensorflow.losses.huber_loss,Huber
+,tensorflow.losses.log_loss,Categorical Cross Entropy
+,tensorflow.losses.mean_squared_error,MSE
+,tensorflow.losses.sigmoid_cross_entropy,Binary Cross-entropy
+,tensorflow.losses.softmax_cross_entropy,Categorical Cross Entropy
+,tensorflow.losses.sparse_softmax_cross_entropy,Sparse Categorical Cross Entropy
+,tensorflow.metrics.mean_absolute_error,MSE
+,tensorflow.metrics.mean_squared_error,MSE
+,tensorflow.nn.ctc_loss,CTC
+,tensorflow.nn.l2_loss,MSE
+,tensorflow.nn.sampled_softmax_loss,Categorical Cross Entropy
+,tensorflow.python.ops.losses.losses.sigmoid_cross_entropy,Binary Cross-entropy
+,tensorflow.python.ops.losses.losses.softmax_cross_entropy,Categorical Cross Entropy
+,torch.nn.BCELoss,Binary Cross-entropy
+,torch.nn.BCEWithLogitsLoss,Binary Cross-entropy
+,torch.nn.CTCLoss,CTC
+,torch.nn.CosineEmbeddingLoss,Cosine Embedding
+,torch.nn.CrossEntropyLoss,Categorical Cross Entropy
+,torch.nn.L1Loss,MAE
+,torch.nn.MSELoss,MSE
+,torch.nn.NLLLoss2d,NLL
+,torch.nn.SmoothL1Loss,Huber
+,torch.nn.functional.binary_cross_entropy,Binary Cross-entropy
+,torch.nn.functional.cross_entropy,Categorical Cross Entropy
+,torch.nn.functional.l1_loss,MAE
+,torch.nn.functional.mse_loss,MSE
+,torch.nn.functional.smooth_l1_loss,Huber

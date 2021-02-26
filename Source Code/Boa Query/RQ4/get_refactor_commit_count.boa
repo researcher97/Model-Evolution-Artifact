@@ -1,0 +1,215 @@
+p: Project = input;
+c_total_commit: output sum of int;
+c_language_commit: output sum of int;
+c_fixes: output sum of int;
+c_enhances: output sum of int;
+fixCount: output sum of int;
+testCount: output sum of int;
+refactorCount: output sum of int;
+enhanceCount: output sum of int;
+resourceCount: output sum of int;
+cleanupCount: output sum of int;
+mergeCount: output sum of int;
+fix_commits_project_wise: output sum[string] of int;
+enhance_commits_projects_wise: output sum[string] of int;
+test_commits_project_wise: output sum[string] of int;
+refactor_commits_projects_wise: output sum[string] of int;
+cleanup_commits_projects_wise: output sum[string] of int;
+c_language_commit_projects_wise: output sum[string] of int;
+resource_commits_projects_wise: output sum[string] of int;
+merge_commits_projects_wise: output sum[string] of int;
+
+projectWiseFlag: bool=true;
+pythonFlag:bool=true;
+
+
+isPythonCommit := function(r: Revision): bool {
+	foreach(f: int; def(r.files[f]))
+		if (match(".*\\.py", r.files[f].name)) {
+			return true;
+		}
+	return false;
+}; 
+isJavaCommit := function(r: Revision): bool {
+	foreach(f: int; def(r.files[f]))
+		if (match(".*\\.java", r.files[f].name)) {
+			return true;
+		}
+	return false;
+}; 
+isAllTestFile := function(r: Revision): bool {
+	foreach(f: int; def(r.files[f]))
+		if (match(".*test.*", r.files[f].name)==false) {
+			return false;
+		}
+	return true;
+}; 
+isAtleastTestFile := function(r: Revision): bool {
+	foreach(f: int; def(r.files[f]))
+		if (match(".*test.*", r.files[f].name)==true) {
+			return true;
+		}
+	return false;
+};
+
+cleanLog := function(log: string): string {
+    clean_log := lowercase(trim(log));
+    clean_log = strreplace(clean_log, "\n", " ", true);
+    clean_log = strreplace(clean_log, "\r", " ", true);
+#    if(len(clean_log) > 500)
+#        clean_log = "VERY LONG MESSAGE";
+	words := splitall(clean_log, "\\W+");
+	
+	foreach(j: int; words[j]) {
+		if (len(words[j]) > 30) ;
+		else {
+		    w := trim(words[j]);
+		    w = strreplace(w, "\n", " ", true);
+		    w = strreplace(w, "\r", " ", true);
+			if (len(clean_log) == 0) 
+			    clean_log = clean_log + w;
+			else 
+		     clean_log = clean_log + " " + w;
+		}
+	}
+	return clean_log;
+};
+
+isenhancingRevision := function(log: string) : bool {
+    if(strfind("improve", log) != -1) return true;
+    if(strfind("enhance", log) != -1) return true;
+    if(strfind("update", log) != -1) return true;
+    if(strfind("add", log) != -1) return true;
+    if(strfind("new", log) != -1) return true;
+    if(strfind("implement", log) != -1) return true;
+    if(strfind("create", log) != -1) return true;
+    if(strfind("enable", log) != -1) return true;
+    return false;
+};
+isunittestRevision := function(log: string) : bool {
+    if(strfind("test", log) != -1) return true;
+    return false;
+};
+isrefactoringRevision := function(log: string) : bool {
+    if(strfind("refactor", log) != -1) return true;
+#    if(strfind("unused", log) != -1) return true;
+#    if(strfind("not used", log) != -1) return true;
+    if(strfind("reformat", log) != -1) return true;
+    if(strfind("restruct", log) != -1) return true;
+    if(strfind("rename", log) != -1) return true;
+    if(strfind("redesign", log) != -1) return true;
+    if(strfind("reorganize", log) != -1) return true;
+    if(strfind("move", log) != -1) return true;
+    return false;
+};
+iscleanupRevision := function(log: string) : bool {
+    if(strfind("clean", log) != -1) return true;
+    if(strfind("delete", log) != -1) return true;
+    if(strfind("deprecate", log) != -1) return true;
+    return false;
+};
+isresourceRevision := function(log: string) : bool {
+    if(strfind("conf", log) != -1) return true;
+    if(strfind("license", log) != -1) return true;
+    if(strfind("legal", log) != -1) return true;
+    return false;
+};
+ismergeRevision := function(log: string) : bool {
+    if(strfind("merge", log) != -1) return true;
+    if(strfind("integrate", log) != -1) return true;
+    return false;
+};
+
+visit(p, visitor {
+	before node: Project->
+	{
+	    if(node.stars<10) 
+	    {
+	        stop;
+	    }
+	}
+	
+	before cr: CodeRepository -> {
+	    for (i := 0; i < getrevisionscount(cr); i++) {
+	        rev := getrevision(cr, i);
+    		visit(rev);
+	    }
+	    stop;
+	}
+	
+	before r: Revision -> {
+	    c_total_commit << 1;
+		
+		c_log := cleanLog(r.log);
+		
+		if(projectWiseFlag)
+    		c_language_commit_projects_wise[p.name]<<1;
+    	else
+    		c_language_commit<<1;
+    	
+    	if(ismergeRevision(c_log))
+	    {
+	    	if(projectWiseFlag)
+	    		merge_commits_projects_wise[p.name]<<1;
+	    	else
+	    		mergeCount<<1;
+	    	stop;
+	    }
+	    		
+		if ((pythonFlag and isPythonCommit(r)) 
+			or (pythonFlag==false and isJavaCommit(r)))
+		{
+    	    if(isunittestRevision(c_log) and isAtleastTestFile(r))
+    	    {
+    	    	if(projectWiseFlag)
+    	    		test_commits_project_wise[p.name]<<1;
+    	    	else
+    	    		testCount<<1;
+    	    }
+#    	    else if(isAllTestFile(r))
+#    	    {
+#    	    	if(projectWiseFlag)
+#    	    		test_commits_project_wise[p.name]<<1;
+#    	    	else
+#    	    		testCount<<1;
+#    	    }
+    	    
+    	    if(isrefactoringRevision(c_log))
+    	    {
+    	    	if(projectWiseFlag)
+    	    		refactor_commits_projects_wise[p.name]<<1;
+    	    	else
+    	    		refactorCount<<1;
+    	    }
+    	    if(iscleanupRevision(c_log))
+    	    {
+    	    	if(projectWiseFlag)
+    	    		cleanup_commits_projects_wise[p.name]<<1;
+    	    	else
+    	    		cleanupCount<<1;
+    	    }
+    	    if(isfixingrevision(c_log))
+    	    {
+    	    	if(projectWiseFlag)
+    	    		fix_commits_project_wise[p.name]<<1;
+    	    	else
+    	    		fixCount<<1;
+    	    }
+    	    if(isenhancingRevision(c_log))
+    	    {
+    	    	if(projectWiseFlag)
+    	    		enhance_commits_projects_wise[p.name]<<1;
+    	    	else
+    	    		enhanceCount<<1;
+    	    }
+		}
+		else
+		{
+			if(projectWiseFlag)
+	    		resource_commits_projects_wise[p.name]<<1;
+	    	else
+	    		resourceCount<<1;
+		}
+		stop;
+	}
+});

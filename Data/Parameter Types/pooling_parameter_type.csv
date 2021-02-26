@@ -1,0 +1,89 @@
+Library,API Name,Param,Change Type
+,keras.layers.AveragePooling2D,0,Kernel Size
+tensorflow,tensorflow.contrib.layers.max_pool2d,0,Input Dimension
+,tensorflow.contrib.layers.max_pool2d,0,Input Dimension
+tensorflow,tensorflow.layers.max_pooling2d,0,Input Dimension
+,tensorflow.layers.max_pooling2d,0,Input Dimension
+tensorflow,tensorflow.nn.avg_pool,0,Input Dimension
+,tensorflow.nn.avg_pool,0,Input Dimension
+tensorflow,tensorflow.nn.max_pool,0,Input Dimension
+,tensorflow.nn.max_pool,0,Input Dimension
+torch,torch.nn.AvgPool2d,0,Kernel Size
+,torch.nn.AvgPool2d,0,Kernel Size
+torch,torch.nn.functional.avg_pool2d,0,Input Dimension
+,torch.nn.functional.avg_pool2d,0,Input Dimension
+torch,torch.nn.functional.max_pool1d,0,Input Dimension
+,torch.nn.functional.max_pool1d,0,Kernel Size
+torch,torch.nn.MaxPool2d,0,Kernel Size
+,torch.nn.MaxPool2d,0,Kernel Size
+,keras.layers.AveragePooling2D,1,Stride
+tensorflow,tensorflow.nn.max_pool,1,Kernel Size
+,tensorflow.nn.max_pool,1,Kernel Size
+,keras.layers.AveragePooling2D,2,Padding
+,tensorflow.layers.average_pooling2d,data_format,Input Dimension
+tensorflow,tensorflow.layers.average_pooling2d,inputs,Input Dimension
+,tensorflow.layers.average_pooling2d,inputs,Input Dimension
+tensorflow,tensorflow.layers.max_pooling2d,inputs,Input Dimension
+,tensorflow.layers.max_pooling2d,inputs,Input Dimension
+,tensorflow.contrib.layers.avg_pool2d,kernel_size,Kernel Size
+,tensorflow.contrib.layers.max_pool2d,kernel_size,Kernel Size
+,torch.nn.AvgPool2d,kernel_size,Kernel Size
+,torch.nn.functional.avg_pool2d,kernel_size,Kernel Size
+,torch.nn.functional.max_pool2d,kernel_size,Kernel Size
+torch,torch.nn.MaxPool2d,kernel_size,Kernel Size
+,torch.nn.MaxPool2d,kernel_size,Kernel Size
+,torch.nn.MaxPool3d,kernel_size,Kernel Size
+tensorflow,tensorflow.nn.avg_pool,ksize,Kernel Size
+,tensorflow.nn.avg_pool,ksize,Kernel Size
+tensorflow,tensorflow.nn.max_pool,ksize,Kernel Size
+,tensorflow.nn.max_pool,ksize,Kernel Size
+,keras.layers.AveragePooling2D,padding,Padding
+,keras.layers.MaxPooling2D,padding,Padding
+,keras.layers.MaxPooling3D,padding,Padding
+,tensorflow.contrib.layers.avg_pool2d,padding,Padding
+,tensorflow.contrib.layers.max_pool2d,padding,Padding
+,tensorflow.contrib.slim.max_pool2d,padding,Padding
+,tensorflow.keras.layers.MaxPool2D,padding,Padding
+,tensorflow.keras.layers.MaxPooling2D,padding,Padding
+,tensorflow.layers.max_pooling2d,padding,Padding
+,tensorflow.nn.avg_pool,padding,Padding
+tensorflow,tensorflow.nn.max_pool,padding,Padding
+,tensorflow.nn.max_pool,padding,Padding
+,torch.nn.AvgPool2d,padding,Padding
+,torch.nn.functional.avg_pool2d,padding,Padding
+,torch.nn.functional.max_pool2d,padding,Padding
+,torch.nn.MaxPool2d,padding,Padding
+,keras.layers.AveragePooling2D,pool_size,Kernel Size
+,keras.layers.convolutional.MaxPooling2D,pool_size,Kernel Size
+,keras.layers.MaxPool2D,pool_size,Kernel Size
+,keras.layers.MaxPooling1D,pool_size,Kernel Size
+,keras.layers.MaxPooling2D,pool_size,Kernel Size
+,keras.layers.MaxPooling3D,pool_size,Kernel Size
+,keras.layers.pooling.AveragePooling2D,pool_size,Kernel Size
+,tensorflow.keras.layers.AveragePooling2D,pool_size,Kernel Size
+,tensorflow.keras.layers.MaxPool2D,pool_size,Kernel Size
+,tensorflow.keras.layers.MaxPooling2D,pool_size,Kernel Size
+,tensorflow.layers.average_pooling2d,pool_size,Kernel Size
+,tensorflow.layers.max_pooling2d,pool_size,Kernel Size
+,tensorflow.contrib.layers.avg_pool2d,stride,Stride
+,tensorflow.contrib.layers.max_pool2d,stride,Stride
+,tensorflow.contrib.slim.max_pool2d,stride,Stride
+,torch.nn.AvgPool2d,stride,Stride
+,torch.nn.functional.avg_pool2d,stride,Stride
+,torch.nn.functional.max_pool2d,stride,Stride
+torch,torch.nn.MaxPool2d,stride,Stride
+,torch.nn.MaxPool2d,stride,Stride
+,torch.nn.MaxPool3d,stride,Stride
+,keras.layers.AveragePooling2D,strides,Stride
+,keras.layers.convolutional.MaxPooling2D,strides,Stride
+,keras.layers.MaxPool2D,strides,Stride
+,keras.layers.MaxPooling2D,strides,Stride
+,keras.layers.MaxPooling3D,strides,Stride
+,keras.layers.pooling.MaxPooling2D,strides,Stride
+,tensorflow.keras.layers.MaxPool2D,strides,Stride
+,tensorflow.keras.layers.MaxPooling2D,strides,Stride
+,tensorflow.layers.average_pooling2d,strides,Stride
+,tensorflow.layers.max_pooling2d,strides,Stride
+,tensorflow.nn.avg_pool,strides,Stride
+tensorflow,tensorflow.nn.max_pool,strides,Stride
+,tensorflow.nn.max_pool,strides,Stride

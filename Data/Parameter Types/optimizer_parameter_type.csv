@@ -1,0 +1,116 @@
+Library Name,API Name,Parameter ID,Parameter Type
+keras,keras.optimizers.Adam,lr,Learning Rate
+keras,keras.optimizers.Adam,decay,Learning Rate Scheduling
+keras,keras.optimizers.Adam,0,Learning Rate
+keras,keras.optimizers.RMSprop,lr,Learning Rate
+keras,keras.optimizers.SGD,lr,Learning Rate
+keras,keras.optimizers.SGD,decay,Learning Rate Scheduling
+keras,keras.optimizers.SGD,momentum,Momentum
+tensorflow,tensorflow.keras.optimizers.Adam,lr,Learning Rate
+tensorflow,tensorflow.keras.optimizers.Adam,0,Learning Rate
+tensorflow,tensorflow.train.AdadeltaOptimizer,0,Learning Rate
+tensorflow,tensorflow.train.AdagradOptimizer,0,Learning Rate
+tensorflow,tensorflow.train.AdamOptimizer,0,Learning Rate
+tensorflow,tensorflow.train.AdamOptimizer,0,Learning Rate
+tensorflow,tensorflow.train.AdamOptimizer,learning_rate,Learning Rate
+tensorflow,tensorflow.train.AdamOptimizer,beta1,Learning Rate Scheduling
+tensorflow,tensorflow.train.AdamOptimizer,epsilon,Epsilon
+tensorflow,tensorflow.train.AdamOptimizer,beta2,Learning Rate Scheduling
+tensorflow,tensorflow.train.GradientDescentOptimizer,0,Learning Rate
+tensorflow,tensorflow.train.GradientDescentOptimizer,learning_rate,Learning Rate
+tensorflow,tensorflow.train.MomentumOptimizer,0,Learning Rate
+tensorflow,tensorflow.train.MomentumOptimizer,0,Learning Rate
+tensorflow,tensorflow.train.MomentumOptimizer,learning_rate,Learning Rate
+tensorflow,tensorflow.train.MomentumOptimizer,learning_rate,Learning Rate
+tensorflow,tensorflow.train.MomentumOptimizer,momentum,Momentum
+tensorflow,tensorflow.train.MomentumOptimizer,1,Momentum
+tensorflow,tensorflow.train.RMSPropOptimizer,0,Learning Rate
+tensorflow,tensorflow.train.RMSPropOptimizer,learning_rate,Learning Rate
+tensorflow,tensorflow.train.RMSPropOptimizer,epsilon,Epsilon
+tensorflow,tensorflow.train.RMSPropOptimizer,momentum,Momentum
+torch,torch.optim.Adam,lr,Learning Rate
+torch,torch.optim.Adam,weight_decay,Learning Rate Scheduling
+torch,torch.optim.Adam,betas,Learning Rate Scheduling
+torch,torch.optim.Adam,betas,Learning Rate Scheduling
+torch,torch.optim.Adam,eps,Epsilon
+torch,torch.optim.Adam,1,Learning Rate
+torch,torch.optim.Adam,2,Learning Rate Scheduling
+torch,torch.optim.RMSprop,lr,Learning Rate
+torch,torch.optim.RMSprop,weight_decay,Learning Rate Scheduling
+torch,torch.optim.SGD,lr,Learning Rate
+torch,torch.optim.SGD,momentum,Momentum
+torch,torch.optim.SGD,weight_decay,Learning Rate Scheduling
+torch,torch.optim.SGD,1,Learning Rate
+tensorflow,tensorflow.keras.optimizers.Adam,learning_rate,Learning Rate
+tensorflow,tensorflow.train.exponential_decay,learning_rate,Learning Rate
+torch,torch.optim.SGD,nesterov,Momentum
+tensorflow,tensorflow.train.RMSPropOptimizer,decay,Learning Rate Scheduling
+tensorflow,tensorflow.keras.optimizers.SGD,learning_rate,Learning Rate
+tensorflow,tensorflow.contrib.layers.optimize_loss,learning_rate,Learning Rate
+tensorflow,tensorflow.optimizers.Adam,0,Learning Rate
+torch,torch.optim.Adagrad,lr,Learning Rate
+torch,torch.optim.Adadelta,lr,Learning Rate
+keras,keras.optimizers.Adadelta,lr,Learning Rate
+,*,learning_rate,Learning Rate
+,*,lr,Learning Rate
+torch,torch.optim.lr_scheduler.LambdaLR,lr_lambda,Learning Rate Scheduling
+torch,torch.optim.lr_scheduler.LambdaLR,last_epoch,Learning Rate Scheduling
+torch,torch.optim.lr_scheduler.LambdaLR,1,Learning Rate Scheduling
+torch,torch.optim.lr_scheduler.LambdaLR,2,Learning Rate Scheduling
+torch,torch.optim.lr_scheduler.MultiStepLR,gamma,Learning Rate Scheduling
+torch,torch.optim.lr_scheduler.ReduceLROnPlateau,factor,Learning Rate Scheduling
+torch,torch.optim.lr_scheduler.ReduceLROnPlateau,1,Learning Rate Scheduling
+torch,torch.optim.lr_scheduler.StepLR,gamma,Learning Rate Scheduling
+torch,torch.optim.lr_scheduler.StepLR,0,Learning Rate Scheduling
+torch,torch.optim.lr_scheduler.ReduceLROnPlateau,min_lr,Learning Rate Scheduling
+keras,keras.callbacks.EarlyStopping,patience,Early Stopping
+keras,keras.callbacks.EarlyStopping,patience,Early Stopping
+keras,keras.callbacks.EarlyStopping,monitor,Early Stopping
+keras,keras.callbacks.EarlyStopping,mode,Early Stopping
+keras,keras.callbacks.EarlyStopping,min_delta,Early Stopping
+keras,keras.callbacks.LearningRateScheduler,0,Learning Rate Scheduling
+keras,keras.callbacks.LearningRateScheduler,schedule,Learning Rate Scheduling
+keras,keras.callbacks.ReduceLROnPlateau,cooldown,Learning Rate Scheduling
+keras,keras.callbacks.ReduceLROnPlateau,patience,Learning Rate Scheduling
+keras,keras.callbacks.ReduceLROnPlateau,min_lr,Learning Rate Scheduling
+keras,keras.callbacks.ReduceLROnPlateau,factor,Learning Rate Scheduling
+keras,torch.optim.lr_scheduler.ReduceLROnPlateau,mode,Learning Rate Scheduling
+keras,keras.layers.Embedding,trainable,Trainability
+keras,keras.models.Model.fit,epochs,Iteration
+keras,keras.models.Sequential.fit,epochs,Iteration
+tensorflow,tensorflow.train.batch,batch_size,Data Size
+tensorflow,tensorflow.train.batch,num_threads,Efficiency
+tensorflow,tensorflow.train.exponential_decay,0,Learning Rate
+tensorflow,tensorflow.train.exponential_decay,2,Learning Rate Scheduling
+tensorflow,tensorflow.train.exponential_decay,3,Learning Rate Scheduling
+tensorflow,tensorflow.train.exponential_decay,decay_steps,Learning Rate Scheduling
+tensorflow,tensorflow.train.exponential_decay,decay_rate,Learning Rate Scheduling
+tensorflow,tensorflow.train.ExponentialMovingAverage,0,Learning Rate Scheduling
+tensorflow,tensorflow.train.ExponentialMovingAverage,decay,Learning Rate Scheduling
+tensorflow,tensorflow.train.ExponentialMovingAverage,1,Learning Rate Scheduling
+torch,torch.optim.lr_scheduler.CosineAnnealingLR,1,Learning Rate Scheduling
+torch,torch.optim.lr_scheduler.CosineAnnealingLR,T_max,Learning Rate Scheduling
+torch,torch.optim.lr_scheduler.CosineAnnealingLR,eta_min,Learning Rate Scheduling
+torch,torch.optim.lr_scheduler.LambdaLR,1,Learning Rate Scheduling
+torch,torch.optim.lr_scheduler.MultiStepLR,milestones,Learning Rate Scheduling
+torch,torch.optim.lr_scheduler.ReduceLROnPlateau,patience,Learning Rate Scheduling
+torch,torch.optim.lr_scheduler.ReduceLROnPlateau,threshold,Learning Rate Scheduling
+torch,torch.optim.lr_scheduler.StepLR,step_size,Learning Rate Scheduling
+tensorflow,tensorflow.Variable,trainable,Trainability
+tensorflow,tensorflow.get_variable,trainable,Trainability
+tensorflow,tensorflow.layers.batch_normalization,training,Trainability
+tensorflow,tensorflow.train.shuffle_batch,capacity,Data Size
+keras,keras.callbacks.ReduceLROnPlateau,monitor,Learning Rate Scheduling
+tensorflow,tensorflow.train.shuffle_batch,batch_size,Data Size
+torch,torch.nn.Parameter,requires_grad,Trainability
+torch,torch.optim.lr_scheduler.MultiStepLR,1,Learning Rate Scheduling
+tensorflow,tensorflow.train.shuffle_batch,num_threads,Efficiency
+,*,num_epoch,Iteration
+,*,num_epochs,Iteration
+,*,trainable,Trainability
+,*,require_grad,Trainability
+,*,requires_grad,Trainability
+,tensorflow.*.train.polynomial_decay,cycle,Learning Rate Scheduling
+,tensorflow.*.train.polynomial_decay,0,Learning Rate
+,tensorflow.*.train.polynomial_decay,2,Learning Rate Scheduling
+,tensorflow.*.train.polynomial_decay,end_learning_rate,Learning Rate Scheduling

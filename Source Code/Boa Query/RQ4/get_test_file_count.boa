@@ -1,0 +1,78 @@
+# test file count project wise
+
+p: Project = input;
+nodePrint: output collection of string;
+noCommit: output sum[string] of int;
+testFileCount: output sum of int;
+totalFileCount: output sum of int;
+testFileCountProjectWise: output sum[string] of int;
+totalFileCountProjectWise: output sum[string] of int;
+
+projectWiseFlag: bool=false;
+pythonFlag:bool=false;
+
+visit(p, visitor { 
+	before node: Project->
+	{
+	    if(node.stars<10) 
+	    {
+	        stop;
+	    }
+	}
+	before node: CodeRepository -> {
+		
+		if(pythonFlag)
+		{
+		    snapshot := getsnapshot(node, "SOURCE_PY_3");
+		    foreach (i: int; def(snapshot[i])) {
+		      visit(snapshot[i]);
+		    }
+		    stop;
+	    }
+	    else
+	    {
+	    	snapshot := getsnapshot(node, "SOURCE_JAVA_JLS");
+			foreach (i: int; def(snapshot[i]))
+				visit(snapshot[i]);
+			stop;
+		}
+  	}
+    
+    before node: ChangedFile ->
+    {
+        if (pythonFlag and !match(".*\\.py", node.name)) # exclude non-python files
+    		stop;
+    	 if (pythonFlag==false and !match(".*\\.java", node.name)) # exclude non-python files
+    		stop;
+#    	if(def(node.kind))
+#    	{
+#    		if(node.kind==FileKind.SOURCE_PY_ERROR)
+#    		{
+#    			stop;
+#    		}
+#    	}
+    	
+    	if(pythonFlag and match(".*\\\\site-packages\\\\.*", node.name))
+    	{
+    		stop;
+    	}
+    		
+    	totalFileCount<<1;
+    	if(projectWiseFlag)
+		{
+			totalFileCountProjectWise[p.name]<<1;
+		}
+    	if(def(node.name) and match(".*test.*", lowercase(node.name)))
+    	{
+    		testFileCount<<1;
+    		if(projectWiseFlag)
+    		{
+    			testFileCountProjectWise[p.name]<<1;
+    		}
+    		stop;
+    	}
+  
+    	stop;
+    }
+	
+});

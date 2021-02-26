@@ -1,0 +1,337 @@
+Library,API Name,Param,Parameter Type
+keras,keras.layers.Conv2D,0,Output Dimension
+keras,keras.layers.Convolution2D,0,Output Dimension
+keras,keras.layers.convolutional.Convolution2D,0,Output Dimension
+keras,keras.layers.Conv1D,0,Output Dimension
+keras,keras.layers.Conv3D,0,Output Dimension
+keras,keras.layers.convolutional.Conv2D,0,Output Dimension
+tensorflow,tensorflow.layers.conv2d,0,Output Dimension
+tensorflow,tensorflow.keras.layers.Conv2D,0,Output Dimension
+tensorflow,tensorflow.nn.conv2d_transpose,0,Input Dimension
+tensorflow,tensorflow.contrib.layers.conv2d,0,Input Dimension
+tensorflow,tensorflow.nn.conv1d,0,Input Dimension
+tensorflow,tensorflow.nn.depthwise_conv2d,0,Input Dimension
+tensorflow,tensorflow.contrib.slim.layers.conv2d,0,Input Dimension
+tensorflow,tensorflow.layers.conv2d_transpose,0,Input Dimension
+tensorflow,tensorflow.nn.conv3d,0,Input Dimension
+tensorflow,tensorflow.contrib.layers.convolution2d,0,Input Dimension
+tensorflow,tensorflow.contrib.layers.convolution2d_transpose,0,Input Dimension
+tensorflow,tensorflow.nn.convolution,0,Input Dimension
+tensorflow,tensorflow.python.keras.layers.Conv2DTranspose,0,Output Dimension
+torch,torch.nn.Conv2d,0,Input Dimension
+torch,torch.nn.ConvTranspose2d,0,Input Dimension
+torch,torch.nn.functional.conv2d,0,Input Dimension
+torch,torch.nn.Conv3d,0,Input Dimension
+torch,torch.nn.Conv1d,0,Input Dimension
+torch,torch.nn.functional.conv1d,0,Input Dimension
+torch,torch.nn.functional.conv_transpose2d,0,Input Dimension
+torch,torch.nn.Conv2d,0,Input Dimension
+torch,torch.nn.ConvTranspose2d,0,Input Dimension
+torch,torch.nn.Conv3d,0,Input Dimension
+torch,torch.nn.Conv1d,0,Input Dimension
+torch,torch.nn.functional.conv2d,0,Input Dimension
+torch,torch.nn.functional.conv1d,0,Input Dimension
+torch,torch.nn.functional.conv3d,0,Input Dimension
+torch,torch.nn.functional.conv_transpose2d,0,Input Dimension
+tensorflow,tensorflow.nn.conv2d,0,Input Dimension
+tensorflow,tensorflow.layers.conv2d,0,Output Dimension
+tensorflow,tensorflow.keras.layers.Conv2D,0,Output Dimension
+tensorflow,tensorflow.contrib.slim.conv2d,0,Input Dimension
+tensorflow,tensorflow.contrib.slim.separable_conv2d,0,Input Dimension
+tensorflow,tensorflow.contrib.slim.conv2d_transpose,0,Input Dimension
+tensorflow,tensorflow.keras.layers.DepthwiseConv2D,0,Kernel Size
+tensorflow,tensorflow.contrib.layers.conv2d,0,Input Dimension
+tensorflow,tensorflow.layers.conv1d,0,Output Dimension
+tensorflow,tensorflow.nn.conv2d_transpose,0,Input Dimension
+tensorflow,tensorflow.nn.atrous_conv2d,0,Input Dimension
+tensorflow,tensorflow.keras.layers.Conv1D,0,Output Dimension
+tensorflow,tensorflow.keras.layers.Conv2DTranspose,0,Output Dimension
+tensorflow,tensorflow.python.keras.layers.Conv2D,0,Output Dimension
+tensorflow,tensorflow.nn.depthwise_conv2d,0,Input Dimension
+tensorflow,tensorflow.contrib.slim.layers.conv2d,0,Input Dimension
+tensorflow,tensorflow.layers.Conv2D,0,Output Dimension
+tensorflow,tensorflow.nn.convolution,0,Input Dimension
+tensorflow,tensorflow.nn.conv3d,0,Input Dimension
+tensorflow,tensorflow.layers.conv2d_transpose,0,Input Dimension
+tensorflow,tensorflow.nn.conv1d,0,Input Dimension
+tensorflow,tensorflow.python.keras.layers.Conv2DTranspose,0,Output Dimension
+keras,keras.layers.Conv3D,0,Output Dimension
+keras,keras.layers.Convolution2D,0,Output Dimension
+keras,keras.layers.convolutional.Convolution1D,0,Output Dimension
+keras,keras.layers.convolutional.Convolution2D,0,Output Dimension
+keras,keras.layers.Conv2D,0,Output Dimension
+keras,keras.layers.Conv2DTranspose,0,Output Dimension
+keras,keras.layers.SeparableConv2D,0,Output Dimension
+keras,keras.layers.Conv1D,0,Output Dimension
+keras,keras.backend.conv2d,0,Input Dimension
+keras,keras.layers.convolutional.Conv2D,0,Output Dimension
+keras,keras.layers.Deconvolution2D,0,Output Dimension
+keras,keras.layers.Conv2D,1,Kernel Size
+keras,keras.layers.Convolution2D,1,Kernel Size
+keras,keras.layers.convolutional.Convolution2D,1,Kernel Size
+keras,keras.layers.Conv1D,1,Kernel Size
+keras,keras.layers.Conv3D,1,Kernel Size
+tensorflow,tensorflow.nn.conv2d,1,Output Dimension
+tensorflow,tensorflow.layers.conv2d,1,Kernel Size
+tensorflow,tensorflow.keras.layers.Conv2D,1,Kernel Size
+tensorflow,tensorflow.contrib.slim.conv2d,1,Output Dimension
+tensorflow,tensorflow.contrib.slim.separable_conv2d,1,
+tensorflow,tensorflow.contrib.slim.conv2d_transpose,1,Output Dimension
+tensorflow,tensorflow.nn.conv2d_transpose,1,Output Dimension
+tensorflow,tensorflow.contrib.layers.conv2d,1,Output Dimension
+tensorflow,tensorflow.nn.conv1d,1,Output Dimension
+tensorflow,tensorflow.nn.depthwise_conv2d,1,Output Dimension
+tensorflow,tensorflow.layers.conv2d_transpose,1,Output Dimension
+tensorflow,tensorflow.nn.conv3d,1,Output Dimension
+tensorflow,tensorflow.nn.convolution,1,Output Dimension
+torch,torch.nn.Conv2d,1,Output Dimension
+torch,torch.nn.ConvTranspose2d,1,Output Dimension
+torch,torch.nn.functional.conv2d,1,Output Dimension
+torch,torch.nn.Conv3d,1,Output Dimension
+torch,torch.nn.Conv1d,1,Output Dimension
+torch,torch.nn.functional.conv1d,1,Output Dimension
+torch,torch.nn.functional.conv_transpose2d,1,Output Dimension
+torch,torch.nn.Conv2d,1,Output Dimension
+torch,torch.nn.ConvTranspose2d,1,Output Dimension
+torch,torch.nn.Conv3d,1,Output Dimension
+torch,torch.nn.Conv1d,1,Output Dimension
+torch,torch.nn.functional.conv2d,1,Output Dimension
+torch,torch.nn.functional.conv1d,1,Output Dimension
+torch,torch.nn.functional.conv3d,1,Output Dimension
+torch,torch.nn.functional.conv_transpose2d,1,Output Dimension
+tensorflow,tensorflow.nn.conv2d,1,Output Dimension
+tensorflow,tensorflow.layers.conv2d,1,Kernel Size
+tensorflow,tensorflow.keras.layers.Conv2D,1,Kernel Size
+tensorflow,tensorflow.contrib.slim.conv2d,1,Output Dimension
+tensorflow,tensorflow.contrib.slim.separable_conv2d,1,Output Dimension
+tensorflow,tensorflow.contrib.slim.conv2d_transpose,1,Output Dimension
+tensorflow,tensorflow.contrib.layers.conv2d,1,Output Dimension
+tensorflow,tensorflow.layers.conv1d,1,Kernel Size
+tensorflow,tensorflow.nn.conv2d_transpose,1,Output Dimension
+tensorflow,tensorflow.nn.atrous_conv2d,1,Output Dimension
+tensorflow,tensorflow.keras.layers.Conv1D,1,Kernel Size
+tensorflow,tensorflow.keras.layers.Conv2DTranspose,1,Kernel Size
+tensorflow,tensorflow.python.keras.layers.Conv2D,1,Kernel Size
+tensorflow,tensorflow.nn.depthwise_conv2d,1,Output Dimension
+tensorflow,tensorflow.contrib.slim.layers.conv2d,1,Output Dimension
+tensorflow,tensorflow.layers.Conv2D,1,Kernel Size
+tensorflow,tensorflow.nn.convolution,1,Output Dimension
+tensorflow,tensorflow.nn.conv3d,1,Output Dimension
+tensorflow,tensorflow.layers.conv2d_transpose,1,Output Dimension
+tensorflow,tensorflow.nn.conv1d,1,Output Dimension
+tensorflow,tensorflow.python.keras.layers.Conv2DTranspose,1,Kernel Size
+keras,keras.layers.Convolution2D,1,Kernel Size
+keras,keras.layers.convolutional.Convolution1D,1,Output Dimension
+keras,keras.layers.convolutional.Convolution2D,1,Kernel Size
+keras,keras.layers.Conv2D,1,Kernel Size
+keras,keras.layers.Conv2DTranspose,1,Kernel Size
+keras,keras.layers.SeparableConv2D,1,Kernel Size
+keras,keras.layers.Conv1D,1,Kernel Size
+keras,keras.backend.conv2d,1,Kernel Size
+keras,keras.layers.convolutional.Conv2D,1,Kernel Size
+keras,keras.layers.Deconvolution2D,1,Kernel Size
+keras,keras.layers.Conv2D,2,Stride
+keras,keras.layers.Convolution2D,2,Kernel Size
+keras,keras.layers.convolutional.Convolution2D,2,Kernel Size
+tensorflow,tensorflow.nn.conv2d,2,Stride
+tensorflow,tensorflow.keras.layers.Conv2D,2,Stride
+tensorflow,tensorflow.contrib.slim.conv2d,2,Kernel Size
+tensorflow,tensorflow.nn.conv2d_transpose,2,Output Dimension
+torch,torch.nn.Conv2d,2,Kernel Size
+torch,torch.nn.ConvTranspose2d,2,Kernel Size
+torch,torch.nn.functional.conv2d,2,Bias
+torch,torch.nn.Conv1d,2,Kernel Size
+torch,torch.nn.Conv2d,2,Kernel Size
+torch,torch.nn.ConvTranspose2d,2,Kernel Size
+torch,torch.nn.Conv3d,2,Kernel Size
+torch,torch.nn.Conv1d,2,Kernel Size
+torch,torch.nn.functional.conv2d,2,Bias
+torch,torch.nn.functional.conv3d,2,Bias
+tensorflow,tensorflow.nn.conv2d,2,Stride
+tensorflow,tensorflow.layers.conv2d,2,Stride
+tensorflow,tensorflow.keras.layers.Conv2D,2,Stride
+tensorflow,tensorflow.contrib.slim.conv2d,2,Kernel Size
+tensorflow,tensorflow.contrib.slim.separable_conv2d,2,Kernel Size
+tensorflow,tensorflow.contrib.slim.conv2d_transpose,2,Kernel Size
+tensorflow,tensorflow.contrib.layers.conv2d,2,Kernel Size
+tensorflow,tensorflow.layers.conv1d,2,Stride
+tensorflow,tensorflow.nn.conv2d_transpose,2,Output Dimension
+tensorflow,tensorflow.nn.atrous_conv2d,2,Stride
+tensorflow,tensorflow.layers.Conv2D,2,Stride
+tensorflow,tensorflow.nn.conv3d,2,Stride
+tensorflow,tensorflow.layers.conv2d_transpose,2,Kernel Size
+tensorflow,tensorflow.nn.conv1d,2,Stride
+keras,keras.layers.Convolution2D,2,Kernel Size
+keras,keras.layers.convolutional.Convolution2D,2,Kernel Size
+keras,keras.layers.Conv2D,2,Stride
+keras,keras.layers.Conv2D,3,Padding
+tensorflow,tensorflow.nn.conv2d,3,Padding
+torch,torch.nn.Conv2d,3,Stride
+torch,torch.nn.ConvTranspose2d,3,Stride
+torch,torch.nn.Conv2d,3,Stride
+torch,torch.nn.ConvTranspose2d,3,Stride
+torch,torch.nn.Conv3d,3,Stride
+torch,torch.nn.functional.conv2d,3,Stride
+torch,torch.nn.functional.conv3d,3,Stride
+tensorflow,tensorflow.nn.conv2d,3,Padding
+tensorflow,tensorflow.layers.conv2d,3,Padding
+tensorflow,tensorflow.keras.layers.Conv2D,3,Padding
+tensorflow,tensorflow.contrib.slim.conv2d,3,Stride
+tensorflow,tensorflow.contrib.layers.conv2d,3,Stride
+tensorflow,tensorflow.nn.conv2d_transpose,3,Stride
+tensorflow,tensorflow.nn.conv1d,3,Padding
+keras,keras.layers.convolutional.Convolution2D,3,Kernel Size
+tensorflow,tensorflow.nn.conv3d,3,Padding
+keras,keras.layers.Deconvolution2D,3,Output Dimension
+tensorflow,tensorflow.contrib.layers.conv2d,4,Padding
+tensorflow,tensorflow.compat.v1.nn.conv2d_transpose,4,Padding
+tensorflow,tensorflow.contrib.layers.conv2d_transpose,4,Padding
+tensorflow,tensorflow.contrib.slim.conv2d,4,Padding
+tensorflow,tensorflow.contrib.slim.ops.conv2d,4,Padding
+tensorflow,tensorflow.nn.conv2d_transpose,4,Padding
+tensorflow,tensorflow.nn.conv3d_transpose,4,Padding
+tensorflow,tensorflow.nn.deconv2d,4,Padding
+tensorflow,tensorflow.contrib.slim.layers.conv2d,4,Padding
+torch,torch.nn.Conv2d,4,Padding
+torch,torch.nn.ConvTranspose2d,4,Padding
+torch,torch.nn.Conv2d,4,Padding
+torch,torch.nn.ConvTranspose2d,4,Padding
+torch,torch.nn.functional.conv2d,4,Padding
+torch,torch.nn.functional.conv3d,4,Padding
+tensorflow,tensorflow.layers.conv2d,4,Input Dimension
+torch,torch.nn.Conv3d,4,Dilation
+tensorflow,tensorflow.contrib.layers.separable_conv2d,5,Padding
+torch,torch.nn.Conv2d,5,Dilation
+torch,torch.nn.functional.conv2d,5,Dilation
+torch,torch.nn.functional.conv3d,5,Dilation
+torch,torch.nn.Conv2d,6,Output Dimension
+torch,torch.nn.functional.conv2d,6,Output Dimension
+torch,torch.nn.functional.conv3d,6,Output Dimension
+keras,keras.layers.Conv2D,activation,Activation
+keras,keras.layers.Convolution2D,activation,Activation
+keras,keras.layers.convolutional.Convolution2D,activation,Activation
+keras,keras.layers.Conv1D,activation,Activation
+tensorflow,tensorflow.layers.conv2d,activation,Activation
+tensorflow,tensorflow.keras.layers.Conv2D,activation,Activation
+tensorflow,tensorflow.keras.layers.Conv1D,activation,Activation
+tensorflow,tensorflow.contrib.slim.conv2d,activation_fn,Activation
+tensorflow,tensorflow.contrib.layers.conv2d,activation_fn,Activation
+torch,torch.nn.Conv2d,bias,Bias
+torch,torch.nn.ConvTranspose2d,bias,Bias
+torch,torch.nn.Conv1d,bias,Bias
+tensorflow,tensorflow.layers.conv2d,bias_initializer,Bias
+tensorflow,tensorflow.keras.layers.Conv2D,bias_initializer,Bias
+tensorflow,tensorflow.keras.layers.Conv2D,bias_regularizer,Bias
+tensorflow,tensorflow.contrib.slim.conv2d,biases_initializer,Bias
+keras,keras.layers.Convolution2D,border_mode,Padding
+keras,keras.layers.convolutional.Convolution2D,border_mode,Padding
+tensorflow,tensorflow.layers.conv2d,data_format,Input Dimension
+tensorflow,tensorflow.keras.layers.Conv2D,data_format,Input Dimension
+torch,torch.nn.Conv2d,dilation,Dilation
+keras,keras.layers.Conv2D,dilation_rate,Dilation
+keras,keras.layers.Convolution2D,dim_ordering,Input Dimension
+tensorflow,tensorflow.nn.conv2d,filter,Output Dimension
+keras,keras.layers.Conv2D,filters,Output Dimension
+keras,keras.layers.Conv1D,filters,Output Dimension
+tensorflow,tensorflow.layers.conv2d,filters,Output Dimension
+tensorflow,tensorflow.keras.layers.Conv2D,filters,Output Dimension
+torch,torch.nn.Conv2d,groups,Output Dimension
+torch,torch.nn.functional.conv2d,groups,Output Dimension
+torch,torch.nn.Conv2d,in_channels,Input Dimension
+torch,torch.nn.ConvTranspose2d,in_channels,Input Dimension
+torch,torch.nn.Conv3d,in_channels,Input Dimension
+torch,torch.nn.Conv1d,in_channels,Input Dimension
+keras,keras.layers.convolutional.Convolution2D,init,Kernel Initializer
+tensorflow,tensorflow.nn.conv2d,input,Input Dimension
+tensorflow,tensorflow.nn.conv2d,input,Input Dimension
+keras,keras.layers.Conv2D,input_shape,Input Dimension
+keras,keras.layers.Convolution2D,input_shape,Input Dimension
+keras,keras.layers.convolutional.Convolution2D,input_shape,Input Dimension
+tensorflow,tensorflow.layers.conv2d,inputs,Input Dimension
+tensorflow,tensorflow.contrib.slim.conv2d,inputs,Input Dimension
+tensorflow,tensorflow.contrib.layers.conv2d,inputs,Input Dimension
+tensorflow,tensorflow.layers.conv2d,inputs,Input Dimension
+tensorflow,tensorflow.layers.conv1d,inputs,Input Dimension
+keras,keras.layers.Conv2D,kernel_initializer,Kernel Initializer
+keras,keras.layers.convolutional.Convolution2D,kernel_initializer,Kernel Initializer
+keras,keras.layers.convolutional.Conv2D,kernel_initializer,Kernel Initializer
+tensorflow,tensorflow.layers.conv2d,kernel_initializer,Kernel Initializer
+tensorflow,tensorflow.keras.layers.Conv2D,kernel_initializer,Kernel Initializer
+tensorflow,tensorflow.keras.layers.Conv1D,kernel_initializer,Kernel Initializer
+tensorflow,tensorflow.layers.conv2d_transpose,kernel_initializer,Kernel Initializer
+tensorflow,tensorflow.layers.Conv2D,kernel_initializer,Kernel Initializer
+keras,keras.layers.Conv2D,kernel_regularizer,Kernel Regularizer
+keras,keras.layers.Conv1D,kernel_regularizer,Kernel Regularizer
+keras,keras.layers.convolutional.Conv2D,kernel_regularizer,Kernel Regularizer
+tensorflow,tensorflow.layers.conv2d,kernel_regularizer,Kernel Regularizer
+tensorflow,tensorflow.keras.layers.Conv2D,kernel_regularizer,Kernel Regularizer
+keras,keras.layers.Conv2D,kernel_size,Kernel Size
+keras,keras.layers.Conv1D,kernel_size,Kernel Size
+tensorflow,tensorflow.layers.conv2d,kernel_size,Kernel Size
+tensorflow,tensorflow.keras.layers.Conv2D,kernel_size,Kernel Size
+torch,torch.nn.Conv2d,kernel_size,Kernel Size
+torch,torch.nn.ConvTranspose2d,kernel_size,Kernel Size
+torch,torch.nn.Conv3d,kernel_size,Kernel Size
+torch,torch.nn.Conv1d,kernel_size,Kernel Size
+keras,keras.layers.convolutional.Convolution2D,nb_col,Kernel Size
+keras,keras.layers.convolutional.Convolution2D,nb_filter,Output Dimension
+keras,keras.layers.convolutional.Convolution2D,nb_row,Kernel Size
+tensorflow,tensorflow.contrib.slim.conv2d,normalizer_fn,Bias
+tensorflow,tensorflow.contrib.slim.conv2d,num_outputs,Output Dimension
+tensorflow,tensorflow.contrib.layers.conv2d,num_outputs,Output Dimension
+torch,torch.nn.Conv2d,out_channels,Output Dimension
+torch,torch.nn.Conv3d,out_channels,Output Dimension
+torch,torch.nn.Conv1d,out_channels,Output Dimension
+torch,torch.nn.ConvTranspose2d,output_padding,Padding
+keras,keras.layers.convolutional.Deconvolution2D,output_shape,Output Dimension
+tensorflow,tensorflow.nn.conv2d_transpose,output_shape,Output Dimension
+keras,keras.layers.Conv2D,padding,Padding
+keras,keras.layers.convolutional.Conv2D,padding,Padding
+tensorflow,tensorflow.nn.conv2d,padding,Padding
+tensorflow,tensorflow.layers.conv2d,padding,Padding
+tensorflow,tensorflow.keras.layers.Conv2D,padding,Padding
+tensorflow,tensorflow.contrib.layers.conv2d,padding,Padding
+tensorflow,tensorflow.compat.v1.nn.conv2d_transpose,padding,Padding
+tensorflow,tensorflow.contrib.layers.conv2d_transpose,padding,Padding
+tensorflow,tensorflow.keras.layers.Conv1D,padding,Padding
+tensorflow,tensorflow.layers.conv2d_transpose,padding,Padding
+tensorflow,tensorflow.contrib.layers.separable_conv2d,padding,Padding
+tensorflow,tensorflow.contrib.slim.conv2d,padding,Padding
+tensorflow,tensorflow.contrib.slim.ops.conv2d,padding,Padding
+tensorflow,tensorflow.nn.conv2d_transpose,padding,Padding
+tensorflow,tensorflow.nn.conv3d_transpose,padding,Padding
+tensorflow,tensorflow.nn.deconv2d,padding,Padding
+tensorflow,tensorflow.contrib.slim.layers.conv2d,padding,Padding
+tensorflow,tensorflow.keras.layers.Conv2DTranspose,padding,Padding
+torch,torch.nn.Conv2d,padding,Padding
+torch,torch.nn.ConvTranspose2d,padding,Padding
+torch,torch.nn.functional.conv2d,padding,Padding
+torch,torch.nn.Conv3d,padding,Padding
+torch,torch.nn.Conv1d,padding,Padding
+torch,torch.nn.Conv2d,padding_mode,Padding
+tensorflow,tensorflow.layers.conv2d,reuse,
+tensorflow,tensorflow.contrib.slim.conv2d,scope,
+tensorflow,tensorflow.contrib.slim.separable_conv2d,scope,
+tensorflow,tensorflow.contrib.slim.conv2d_transpose,scope,
+tensorflow,tensorflow.contrib.layers.conv2d,scope,
+tensorflow,tensorflow.contrib.slim.layers.conv2d,scope,
+tensorflow,tensorflow.contrib.slim.conv2d,scope,
+tensorflow,tensorflow.contrib.slim.separable_conv2d,scope,
+tensorflow,tensorflow.contrib.slim.conv2d_transpose,scope,
+tensorflow,tensorflow.contrib.layers.conv2d,scope,
+tensorflow,tensorflow.contrib.slim.layers.conv2d,scope,
+torch,torch.nn.Conv2d,stride,Stride
+torch,torch.nn.ConvTranspose2d,stride,Stride
+torch,torch.nn.Conv3d,stride,Stride
+torch,torch.nn.Conv1d,stride,Stride
+keras,keras.layers.Conv2D,strides,Stride
+keras,keras.layers.Conv3D,strides,Stride
+tensorflow,tensorflow.nn.conv2d,strides,Stride
+tensorflow,tensorflow.layers.conv2d,strides,Stride
+tensorflow,tensorflow.keras.layers.Conv2D,strides,Stride
+keras,keras.layers.convolutional.Convolution2D,subsample,Stride
+keras,keras.layers.Convolution2D,trainable,Trainability
+keras,keras.layers.Conv2D,use_bias,Bias
+tensorflow,tensorflow.keras.layers.Conv2D,use_bias,Bias
+keras,keras.layers.convolutional.Convolution2D,W_regularizer,Kernel Regularizer
+tensorflow,tensorflow.contrib.slim.conv2d,weights_initializer,Kernel Initializer

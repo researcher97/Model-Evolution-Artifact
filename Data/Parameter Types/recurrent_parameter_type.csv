@@ -1,0 +1,81 @@
+Library,API Name,Param,Change Type
+keras,keras.backend.rnn,0,Step Function
+tensorflow,tensorflow.nn.rnn,0,Static RNN Cell
+tensorflow,tensorflow.python.ops.rnn.rnn,0,Static RNN Cell
+tensorflow,tensorflow.contrib.rnn.MultiRNNCell,0,Number Layer
+tensorflow,tensorflow.nn.rnn_cell.MultiRNNCell,0,Number Layer
+tensorflow,tensorflow.python.ops.rnn_cell.MultiRNNCell,0,Number Layer
+keras,keras.layers.GRU,0,Hidden Size
+keras,keras.layers.recurrent.GRU,0,Hidden Size
+keras,keras.layers.recurrent.LSTM,0,Hidden Size
+tensorflow,tensorflow.contrib.rnn.BasicLSTMCell,0,Hidden Size
+tensorflow,tensorflow.contrib.rnn.GRUCell,0,Hidden Size
+tensorflow,tensorflow.contrib.rnn.LSTMBlockFusedCell,0,Hidden Size
+tensorflow,tensorflow.contrib.rnn.LSTMCell,0,Hidden Size
+tensorflow,tensorflow.nn.rnn_cell.BasicLSTMCell,0,Hidden Size
+tensorflow,tensorflow.nn.rnn_cell.LSTMCell,0,Hidden Size
+tensorflow,tensorflow.python.keras.layers.LSTM,0,Hidden Size
+tensorflow,tensorflow.nn.bidirectional_dynamic_rnn,0,Forward Cell
+tensorflow,tensorflow.nn.dynamic_rnn,0,Dynamic RNN Cell
+keras,keras.layers.LSTM,0,Hidden Size
+tensorflow,tensorflow.contrib.seq2seq.BasicDecoder,0,Decoder Cell
+torch,torch.nn.GRU,0,Data Dimension
+torch,torch.nn.GRUCell,0,Data Dimension
+torch,torch.nn.LSTM,0,Data Dimension
+torch,torch.nn.LSTMCell,0,Data Dimension
+tensorflow,tensorflow.contrib.rnn.LSTMStateTuple,0,Cell State
+keras,keras.layers.wrappers.Bidirectional,0,Bidirectional Cell
+keras,keras.layers.Bidirectional,0,Bidirectional Cell
+tensorflow,tensorflow.nn.rnn_cell.LSTMStateTuple,1,Hidden State
+tensorflow,tensorflow.contrib.rnn.LSTMStateTuple,1,Hidden State
+torch,torch.nn.GRU,1,Hidden Size
+torch,torch.nn.LSTM,1,Hidden Size
+tensorflow,tensorflow.contrib.seq2seq.BasicDecoder,1,Decoder Sampler
+tensorflow,tensorflow.contrib.rnn.static_rnn,1,Data Dimension
+tensorflow,tensorflow.nn.dynamic_rnn,1,Data Dimension
+tensorflow,tensorflow.nn.rnn,1,Data Dimension
+tensorflow,tensorflow.nn.bidirectional_dynamic_rnn,1,Backward Cell
+tensorflow,tensorflow.contrib.seq2seq.AttentionWrapper,1,Attention Mechanism
+torch,torch.nn.LSTM,2,Number Layer
+tensorflow,tensorflow.contrib.seq2seq.BasicDecoder,2,Decoder Initial State
+tensorflow,tensorflow.contrib.rnn.static_bidirectional_rnn,2,Data Dimension
+tensorflow,tensorflow.nn.bidirectional_dynamic_rnn,2,Data Dimension
+keras,keras.layers.LSTM,activation,Activation
+keras,keras.layers.recurrent.LSTM,activation,Activation
+torch,torch.nn.LSTM,batch_first,Data Dimension
+torch,torch.nn.GRU,bidirectional,Bidirectional
+torch,torch.nn.LSTM,bidirectional,Bidirectional
+tensorflow,tensorflow.contrib.rnn.LSTMStateTuple,c,Cell State
+tensorflow,tensorflow.nn.dynamic_rnn,cell,Dynamic RNN Cell
+tensorflow,tensorflow.contrib.seq2seq.BasicDecoder,cell,Decoder Cell
+tensorflow,tensorflow.contrib.seq2seq.BeamSearchDecoder,cell,Decoder Cell
+tensorflow,tensorflow.nn.bidirectional_dynamic_rnn,cell_bw,Backward Cell
+tensorflow,tensorflow.nn.bidirectional_dynamic_rnn,cell_fw,Forward Cell
+tensorflow,tensorflow.contrib.seq2seq.dynamic_decode,decoder,Decoder Cell
+keras,keras.layers.LSTM,dropout,Dropout
+torch,torch.nn.GRU,dropout,Dropout
+torch,torch.nn.LSTM,dropout,Dropout
+tensorflow,tensorflow.nn.dynamic_rnn,dtype,Data Type
+tensorflow,tensorflow.contrib.rnn.BasicLSTMCell,forget_bias,Forget Bias
+tensorflow,tensorflow.contrib.rnn.LSTMStateTuple,h,Hidden State
+torch,torch.nn.LSTM,hidden_size,Hidden Size
+tensorflow,tensorflow.nn.dynamic_rnn,initial_state,Initial State
+tensorflow,tensorflow.contrib.seq2seq.BasicDecoder,initial_state,Decoder Initial State
+tensorflow,tensorflow.contrib.seq2seq.BeamSearchDecoder,initial_state,Decoder Initial State
+keras,keras.layers.LSTM,input_shape,Data Dimension
+torch,torch.nn.GRU,input_size,Data Dimension
+torch,torch.nn.LSTM,input_size,Data Dimension
+tensorflow,tensorflow.nn.bidirectional_dynamic_rnn,inputs,Data Dimension
+tensorflow,tensorflow.nn.dynamic_rnn,inputs,Data Dimension
+tensorflow,tensorflow.contrib.seq2seq.dynamic_decode,maximum_iterations,Decoder Maximum Step
+torch,torch.nn.LSTM,num_layers,Number Layer
+keras,keras.layers.LSTM,output_dim,Output Dimension
+keras,keras.layers.recurrent.LSTM,output_dim,Hidden Size
+tensorflow,tensorflow.contrib.seq2seq.BasicDecoder,output_layer,Decoder Output Layer
+keras,keras.layers.LSTM,recurrent_dropout,Dropout
+keras,keras.layers.LSTM,return_sequences,Return Sequence
+tensorflow,tensorflow.nn.bidirectional_dynamic_rnn,sequence_length,Timestep
+tensorflow,tensorflow.nn.dynamic_rnn,sequence_length,Timestep
+tensorflow,tensorflow.nn.dynamic_rnn,swap_memory,Hardware Efficiency
+keras,keras.layers.LSTM,units,Hidden Size
+keras,keras.layers.recurrent.LSTM,units,Hidden Size

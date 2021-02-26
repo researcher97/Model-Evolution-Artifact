@@ -1,0 +1,337 @@
+# The query filters the projects which use the given ML libraries.
+
+p: Project = input;
+nodePrint: output collection of string;
+noCommit: output sum[string] of int;
+testFileCount: output sum of int;
+errorFileCount: output sum of int;
+dnnModuleCount: output sum of int;
+modifiedDnnModuleCount: output sum of int;
+totalModuleCount: output sum of int;
+impactList: output sum[string][string][string][string][string] of int;
+currentModuleLibs: array of string;
+
+revision: Revision;
+repo: CodeRepository;
+
+kerasModuleCount: output sum of int;
+modifiedKerasModuleCount: output sum of int;
+torchModuleCount: output sum of int;
+modifiedTorchModuleCount: output sum of int;
+tfModuleCount: output sum of int;
+modifiedTfModuleCount: output sum of int;
+
+kerasApiCallSiteCount: output sum of int;
+modifiedkerasApiCallSiteCount: output sum of int;
+torchApiCallSiteCount: output sum of int;
+modifiedtorchApiCallSiteCount: output sum of int;
+tfApiCallSiteCount: output sum of int;
+modifiedtfApiCallSiteCount: output sum of int;
+
+skippedFileSitePackageCount: output sum of int;
+skippedFileAstCount: output sum of int;
+
+isApiCallSiteCounted: map[int] of int;
+projectSkipCount: output sum of int;
+overallModifiedApi: set of string;
+overallApiSet: set of string;
+kerasApiUniqueCount: output sum of int;
+modifiedKerasApiUniqueCount: output sum of int;
+torchApiUniqueCount: output sum of int;
+modifiedTorchApiUniqueCount: output sum of int;
+tfApiUniqueCount: output sum of int;
+modifiedTfApiUniqueCount: output sum of int;
+
+current_method_name:string="";
+current_file_name:string="";
+revision_id:string="";
+
+moduleChanged:=false;
+
+
+dnnPackage := { "torch", "keras", "tensorflow"};
+#otherPackage :array of string= { "numpy", "scipy", "sklearn","pandas","nltk"};
+otherPackage :array of string;
+
+
+isKindChange:=function(node: ChangeKind): bool
+{
+	if(node!=ChangeKind.MOVED && node!=ChangeKind.UNCHANGED && node!=ChangeKind.UNKNOWN && node!=ChangeKind.UNMAPPED)
+		return true;
+	return false; 
+};
+isChangeKindModification:=function(node: Expression): bool
+{
+	if(def(node.change)==false) return false;
+	if(isKindChange(node.change)==false)
+		return false;
+	if(node.change==ChangeKind.ADDED)
+		return false;
+	return true; 
+};
+isChangeKindDeleted:=function(node: Expression): bool
+{
+	if(def(node.change)==false) return false;
+	if(node.change==ChangeKind.DELETED)
+		return true;
+	return false; 
+};
+getChangeTag:=function(change: ChangeKind): string
+{
+	if(change==ChangeKind.ADDED)
+		return "ADDED";
+	if(change==ChangeKind.DELETED)
+		return "DELETED";
+	return "MODIFIED"; 
+};
+isTfApi:=function(api:string):bool
+{
+	if(match("tensorflow", api))
+		return true;
+		
+	if(match("^tensorflow\\..*", api))
+		return true;
+	return false;
+};
+isKerasApi:=function(api:string):bool
+{
+	if(match("keras", api))
+		return true;
+	if(match("^keras\\..*", api))
+		return true;
+	return false;
+};
+isTorchApi:=function(api:string):bool
+{
+	if(match("torch", api))
+		return true;
+		
+	if(match("^torch\\..*", api))
+		return true;
+	return false;
+};
+getLibName:=function(api:string):string
+{
+	if(isTfApi(api))
+		return "tensorflow";
+	if(isKerasApi(api))
+		return "keras";
+	if(isTorchApi(api))
+		return "torch";
+	return "";
+};
+getLibIndex:=function(api:string):int
+{
+	foreach(j:int;def(dnnPackage[j]))
+		if(match(dnnPackage[j], getLibName(api)))
+		{
+			return j;
+		}
+	return -1;
+};
+getOtherIndex:=function(api:string):int
+{
+#	foreach(i:int;def(otherPackage[i]))
+#		if(match("^"+otherPackage[i]+"\\..*", api))
+#		{
+#			return i;
+#		}
+	return -1;
+};
+recordImpact:=function(api : string, change: ChangeKind, libIndex: int, otherIndex: int)
+{
+	ctag:=getChangeTag(change);
+	moduleChanged=true;
+	if(libIndex!=-1)
+		impactList[p.name][revision_id][dnnPackage[libIndex]][api][ctag]<<1;
+	
+	if(otherIndex==-1) return;
+	foreach(j:int; def(currentModuleLibs[j]))
+	{
+		impactList[p.name][revision_id][currentModuleLibs[j]][api]
+		[ctag]<<1;
+	}
+};
+
+
+libraryWiseCount:=function(api: string, id: int, impacted: bool, forModule: bool)
+{
+	if(forModule==false and haskey(isApiCallSiteCounted, id))
+		return;
+		
+	if(forModule==false)
+		isApiCallSiteCounted[id]=1;
+	
+	if(isKerasApi(api))
+	{
+		if(forModule)
+		{
+			kerasModuleCount<<1;
+			if(impacted)
+				modifiedKerasModuleCount<<1;
+		}
+		else
+		{
+			kerasApiCallSiteCount<<1;
+			if(impacted)
+				modifiedkerasApiCallSiteCount<<1;
+		}		
+	}
+	else if(isTfApi(api))
+	{
+		if(forModule)
+		{
+			tfModuleCount<<1;
+			if(impacted)
+				modifiedTfModuleCount<<1;
+		}
+		else
+		{
+			tfApiCallSiteCount<<1;
+			if(impacted)
+				modifiedtfApiCallSiteCount<<1;
+		}		
+	}	
+	else if(isTorchApi(api))
+	{
+		if(forModule)
+		{
+			torchModuleCount<<1;
+			if(impacted)
+				modifiedTorchModuleCount<<1;
+		}
+		else
+		{
+			torchApiCallSiteCount<<1;
+			if(impacted)
+				modifiedtorchApiCallSiteCount<<1;
+		}		
+	}	
+};
+
+
+isExpressionImpacted:=function(node: Expression): bool
+{
+	if(def(node.change))
+	{
+		if(isKindChange(node.change))
+			return true;
+	}
+		
+	foreach(i:int;def(node.expressions[i]))
+	{
+		if(isExpressionImpacted(node.expressions[i]))
+			return true;
+	}
+	if(node.kind==ExpressionKind.METHODCALL)
+	{
+		foreach(i:int;def(node.method_args[i]))
+		{
+			if(isExpressionImpacted(node.method_args[i]))
+				return true;
+			break;
+		}
+	}
+	return false;
+};
+
+impactDetectionVisitor:= visitor
+{
+
+    before node: Expression->
+    {
+    	if(node.kind==ExpressionKind.METHODCALL)
+    	{
+    	    libIndex:= getLibIndex(node.method);
+    		otherIndex:= getOtherIndex(node.method);
+    		
+    		if(libIndex!=-1 || otherIndex!=-1)
+    		{
+    		    str:=node.method;
+   
+	    		if(isExpressionImpacted(node))
+				{
+	#				nodePrint<<str+" "+string(node.change);
+					recordImpact(str, node.change, libIndex,otherIndex);
+					
+					libraryWiseCount(str, node.id, true, false);
+				}
+				libraryWiseCount(str, node.id, false, false);
+			}
+		}
+    }
+};
+
+
+visit(p, visitor { 
+	before node: Project->
+	{
+	    if(node.stars<15) 
+	    {
+	        projectSkipCount<<1;
+	        stop;
+	    }
+	}
+	before node: Revision ->
+    {
+#    	if(node.id!="8fe21e416700914eba096714d78c3a3369e6257f")
+#    	 	stop;
+    	 revision_id=string(node.id);
+    }
+    
+    before node: ChangedFile ->
+    {
+        if (!match(".*\\.py", node.name)) # exclude non-python files
+    		stop;
+    	
+    	if(match(".*\\\\site-packages\\\\.*", node.name))
+    	{
+    		skippedFileSitePackageCount<<1;
+    		stop;
+    	}
+    		
+    	totalModuleCount<<1;
+    	if(def(node.name) and match(".*test.*", lowercase(node.name)))
+    	{
+    		testFileCount<<1;
+    		stop;
+    	}
+    	if(def(node.kind))
+    	{
+    		if(node.kind==FileKind.SOURCE_PY_ERROR)
+    		{
+    			errorFileCount<<1;
+    			stop;
+    		}
+    	}
+    	
+		 
+		 astCount:=getastcount(node);
+		 if(astCount>10000)
+		 {
+		 	stop;
+		 }
+		
+    	if(node.change==ChangeKind.ADDED)
+    	 stop;
+    	
+    	cur_ast:=getast(node);
+    	
+    	if(!def(cur_ast)) 	stop;
+    	if(len(cur_ast.namespaces)!=2)
+    		 stop;
+    	
+    	
+		diffNode := getmodificationbackward(cur_ast, dnnPackage, otherPackage);
+		
+		currentModuleLibs=getpythonimportmodules(cur_ast,dnnPackage);
+		
+		if(len(currentModuleLibs)==0) stop;
+		
+		if(def(diffNode))
+			visit(diffNode, impactDetectionVisitor);
+    	
+    	stop;
+    }
+	
+});
